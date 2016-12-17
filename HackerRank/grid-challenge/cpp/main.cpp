@@ -1,6 +1,6 @@
 #include <iostream>
-#include <string>
 #include <vector>
+#include <string>
 #include <algorithm>
 
 #define ALL(x) x.begin(), x.end()
@@ -9,8 +9,10 @@ bool valid_grid(std::vector<std::string> arr) {
   std::sort(ALL(arr[0]));
   for (int i = 1; i < arr.size(); i++) {
     std::sort(ALL(arr[i]));
-    if (arr[i-1] > arr[i])
-      return false;
+    for (int j = 0; j < arr[i].size(); j++) {
+      if (arr[i-1][j] > arr[i][j])
+        return false;
+    }
   }
 
   return true;
